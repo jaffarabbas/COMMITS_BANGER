@@ -1,6 +1,6 @@
 import os
 import time
-import os
+from datetime import datetime
 
 
 # function to insert values in file
@@ -32,18 +32,23 @@ def ClearFile():
 
 
 def GitCommandRunner():
+    CurrentDate = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     os.system('cmd /c "git status"')
     os.system('cmd /c "git add -A"')
-    os.system('cmd /c "git commit -m "9-21-2021"')
+    os.system('cmd /c "git commit -m "' + CurrentDate + '"')
+
+
+def push():
     os.system('cmd /c "git push -u origin"')
 
 
 def main():
     for i in range(0, 10):
-        time.sleep(1)
+        #time.sleep(1)
         InsertIntoFile(i)
     # calling Clear function to clear text file
-    ClearFile()
+    #ClearFile()
+    push()
 
 
 if __name__ == '__main__':
