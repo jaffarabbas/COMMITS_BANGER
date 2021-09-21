@@ -1,5 +1,6 @@
 import os
 import time
+import os
 
 
 # function to insert values in file
@@ -29,12 +30,20 @@ def ClearFile():
         tempFile.write('')
 
 
+def GitCommandRunner():
+    os.system('cmd /c "git status"')
+    os.system('cmd /c "git add -A"')
+    os.system('cmd /c "git commit -m "9-21-2021"')
+    os.system('cmd /c "git push -u main"')
+
+
 def main():
-    for i in range(0, 50):
-        time.sleep(1)
-        InsertIntoFile(i)
-    # calling Clear function to clear text file
-    ClearFile()
+    # for i in range(0, 50):
+    #     time.sleep(1)
+    #     InsertIntoFile(i)
+    # # calling Clear function to clear text file
+    # ClearFile()
+    GitCommandRunner()
 
 
 if __name__ == '__main__':
