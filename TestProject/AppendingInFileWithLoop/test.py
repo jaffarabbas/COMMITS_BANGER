@@ -44,10 +44,9 @@ def push():
 
 def main():
     for i in range(0, 10):
-        #time.sleep(1)
         InsertIntoFile(i)
     # calling Clear function to clear text file
-    #ClearFile()
+    ClearFile()
     push()
 
 
