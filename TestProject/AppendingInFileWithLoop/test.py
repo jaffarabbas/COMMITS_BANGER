@@ -34,7 +34,7 @@ def GitCommandRunner():
     os.system('cmd /c "git status"')
     os.system('cmd /c "git add -A"')
     os.system('cmd /c "git commit -m "9-21-2021"')
-    os.system('cmd /c "git push -u main"')
+    os.system('cmd /c "git push -u origin"')
 
 
 def main():
