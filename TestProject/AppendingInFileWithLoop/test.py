@@ -33,9 +33,7 @@ def ClearFile():
 
 def GitCommandRunner():
     CurrentDate = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-    os.system('cmd /c "git status"')
-    os.system('cmd /c "git add -A"')
-    os.system('cmd /c "git commit -m "' + CurrentDate + '"')
+    os.system('cmd /c "git add -A && git commit -m "' + CurrentDate + '"')
 
 
 def push():
