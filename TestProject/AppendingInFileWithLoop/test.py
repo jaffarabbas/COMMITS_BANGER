@@ -39,7 +39,7 @@ def GitCommandRunner():
 
 
 def main():
-    for i in range(0, 1):
+    for i in range(0, 10):
         time.sleep(1)
         InsertIntoFile(i)
     # calling Clear function to clear text file
