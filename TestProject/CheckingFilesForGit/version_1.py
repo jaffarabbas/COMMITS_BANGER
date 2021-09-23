@@ -8,10 +8,8 @@ from multiprocessing import Process
 # from dotenv import load_dotenv
 
 # load_dotenv()
-ListForCommit = []
-url = "J:\C-sharp-Practice"
-url2 = "J:\Program\Github\COMMITS_BANGER"
-repo = Repo(url2, odbt=GitCmdObjectDB)
+url = "J:\Program\Github\COMMITS_BANGER"
+repo = Repo(url, odbt=GitCmdObjectDB)
 diff = repo.git.diff('HEAD~1..HEAD', name_only=True)
 changed = [item.a_path for item in repo.index.diff(None)]
 origin = repo.remote('origin')
