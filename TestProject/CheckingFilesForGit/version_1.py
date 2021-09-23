@@ -1,4 +1,3 @@
-import os
 from git import Repo
 from git.db import GitCmdObjectDB
 from datetime import datetime
