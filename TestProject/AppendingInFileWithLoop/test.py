@@ -9,7 +9,7 @@ def InsertIntoFile(count):
     print(count)
     file.write(str(count) + "\n")
     file.close()
-    GitCommandRunner()
+    #GitCommandRunner()
 
 
 # function to clear file
@@ -44,8 +44,8 @@ def main():
     for i in range(0, 10):
         InsertIntoFile(i)
     # calling Clear function to clear text file
-    ClearFile()
-    push()
+    # ClearFile()
+    # push()
 
 
 if __name__ == '__main__':
