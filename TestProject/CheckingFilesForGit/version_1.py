@@ -1,14 +1,10 @@
 import os
-from git import Git, Repo, GitDB
+from git import Repo
 from git.db import GitCmdObjectDB
-from os import path
 from datetime import datetime
-from dotenv import load_dotenv
 
-load_dotenv()
 
-repo = Repo(os.getenv("URL"), odbt=GitCmdObjectDB)
-diff = repo.git.diff('HEAD~1..HEAD', name_only=True)
+repo = Repo("J:\Program\Github\COMMITS_BANGER", odbt=GitCmdObjectDB)
 changed = [item.a_path for item in repo.index.diff(None)]
 origin = repo.remote('origin')
 
@@ -27,4 +23,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+   main()
