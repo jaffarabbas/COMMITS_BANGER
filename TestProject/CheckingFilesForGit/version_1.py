@@ -3,14 +3,13 @@ from git import Repo
 from git.db import GitCmdObjectDB
 from datetime import datetime
 
-
 repo = Repo("J:\Program\Github\COMMITS_BANGER", odbt=GitCmdObjectDB)
 changed = [item.a_path for item in repo.index.diff(None)]
 origin = repo.remote('origin')
 
 
 def main():
-    #counter for counter commited files
+    # counter for counter commited files
     count = 0
     # commit message
     commit_message = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
@@ -25,9 +24,10 @@ def main():
         repo.index.commit(commit_message)
         count += 1
         print(f'commited file : {i}')
-    #push all commits at once
+    # push all commits at once
     origin.push()
     print(f"Done !!! commiting : {count} files")
 
+
 if __name__ == '__main__':
-   main()
+    main()
