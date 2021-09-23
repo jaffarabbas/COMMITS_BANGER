@@ -28,8 +28,7 @@ def main():
     # add and commit the files
     for i in ListForCommit:
         repo.index.add(i)
-        print(i)
-        repo.commit(i)
+        repo.index.commit("9-23-2021")
         print(True)
 
 
