@@ -14,6 +14,7 @@ url2 = "J:\Program\Github\COMMITS_BANGER"
 repo = Repo(url2, odbt=GitCmdObjectDB)
 diff = repo.git.diff('HEAD~1..HEAD', name_only=True)
 changed = [item.a_path for item in repo.index.diff(None)]
+origin = repo.remote('origin')
 
 
 def main():
@@ -21,15 +22,12 @@ def main():
     commit_message = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     # add files to stage and commit
     for i in repo.untracked_files:
-        print(i)
         repo.index.add(i)
         repo.index.commit(commit_message)
-        print(True)
     for i in changed:
-        print(i)
         repo.index.add(i)
         repo.index.commit(commit_message)
-        print(True)
+    origin.push()
 
 
 if __name__ == '__main__':
