@@ -3,13 +3,11 @@ from git import Git, Repo, GitDB
 from git.db import GitCmdObjectDB
 from os import path
 from datetime import datetime
-from multiprocessing import Process
+from dotenv import load_dotenv
 
-# from dotenv import load_dotenv
+load_dotenv()
 
-# load_dotenv()
-url = "J:\Program\Github\COMMITS_BANGER"
-repo = Repo(url, odbt=GitCmdObjectDB)
+repo = Repo(os.getenv("URL"), odbt=GitCmdObjectDB)
 diff = repo.git.diff('HEAD~1..HEAD', name_only=True)
 changed = [item.a_path for item in repo.index.diff(None)]
 origin = repo.remote('origin')
