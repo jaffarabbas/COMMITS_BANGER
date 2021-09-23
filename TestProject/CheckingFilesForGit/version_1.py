@@ -8,7 +8,7 @@ origin = repo.remote('origin')
 
 
 def main():
-    # counter for counter commited files
+    # counter for counter committed files
     count = 0
     # commit message
     commit_message = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
@@ -17,15 +17,15 @@ def main():
         repo.index.add(i)
         repo.index.commit(commit_message)
         count += 1
-        print(f'commited file : {i}')
+        print(f'committed file : {i}')
     for i in changed:
         repo.index.add(i)
         repo.index.commit(commit_message)
         count += 1
-        print(f'commited file : {i}')
+        print(f'committed file : {i}')
     # push all commits at once
     origin.push()
-    print(f"Done !!! commiting : {count} files")
+    print(f"Done !!! committing : {count} files")
 
 
 if __name__ == '__main__':
