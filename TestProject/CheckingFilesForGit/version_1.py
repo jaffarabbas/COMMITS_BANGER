@@ -2,6 +2,7 @@ import os
 from git import Git, Repo, GitDB
 from git.db import GitCmdObjectDB
 from os import path
+from datetime import datetime
 
 # from dotenv import load_dotenv
 
@@ -22,13 +23,19 @@ def PopulateListWithFiles():
     print(ListForCommit)
 
 
+def GitCommandRunner():
+    CurrentDate = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    os.system('cmd /c "git commit -m "' + CurrentDate + '"')
+
+
 def main():
     # populate files
     PopulateListWithFiles()
     # add and commit the files
     for i in ListForCommit:
+        print(i)
         repo.index.add(i)
-        repo.index.commit("9-23-2021")
+        GitCommandRunner()
         print(True)
 
 
