@@ -2,7 +2,7 @@ from git import Repo
 from git.db import GitCmdObjectDB
 from datetime import datetime
 
-repo = Repo("J:\Program\Github\COMMITS_BANGER", odbt=GitCmdObjectDB)
+repo = Repo("J:\Jawan-Pakistan-Flutter-Course", odbt=GitCmdObjectDB)
 changed = [item.a_path for item in repo.index.diff(None)]
 origin = repo.remote('origin')
 
