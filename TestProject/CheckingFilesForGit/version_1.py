@@ -6,12 +6,10 @@ repo = Repo("J:\Program\Github\COMMITS_BANGER", odbt=GitCmdObjectDB)
 origin = repo.remote('origin')
 
 
-def GitCommandRunner(commit, commit_message, count):
+def GitCommandRunner(commit, commit_message):
     repo.index.add(commit)
     repo.index.commit(commit_message)
-    count += 1
     print(f'committed file : {commit}')
-
 
 def main():
     # counter for counter committed files
@@ -20,9 +18,11 @@ def main():
     commit_message = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     # add files to stage and commit
     for i in repo.untracked_files:
-        GitCommandRunner(i, commit_message, count)
+        GitCommandRunner(i, commit_message)
+        count += 1
     for item in repo.index.diff(None):
-        GitCommandRunner(item.a_path, commit_message, count)
+        GitCommandRunner(item.a_path, commit_message)
+        count += 1
     # push all commits at once
     origin.push()
     print(f"Done !!! committing : {count} files")
