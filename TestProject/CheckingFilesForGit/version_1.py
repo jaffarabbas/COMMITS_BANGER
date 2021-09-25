@@ -2,9 +2,15 @@ from git import Repo
 from git.db import GitCmdObjectDB
 from datetime import datetime
 
-repo = Repo("J:\Jawan-Pakistan-Flutter-Course", odbt=GitCmdObjectDB)
-changed = [item.a_path for item in repo.index.diff(None)]
+repo = Repo("J:\Program\Github\COMMITS_BANGER", odbt=GitCmdObjectDB)
 origin = repo.remote('origin')
+
+
+def GitCommandRunner(commit, commit_message, count):
+    repo.index.add(commit)
+    repo.index.commit(commit_message)
+    count += 1
+    print(f'committed file : {commit}')
 
 
 def main():
@@ -14,15 +20,9 @@ def main():
     commit_message = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     # add files to stage and commit
     for i in repo.untracked_files:
-        repo.index.add(i)
-        repo.index.commit(commit_message)
-        count += 1
-        print(f'committed file : {i}')
-    for i in changed:
-        repo.index.add(i)
-        repo.index.commit(commit_message)
-        count += 1
-        print(f'committed file : {i}')
+        GitCommandRunner(i, commit_message, count)
+    for item in repo.index.diff(None):
+        GitCommandRunner(item.a_path, commit_message, count)
     # push all commits at once
     origin.push()
     print(f"Done !!! committing : {count} files")
