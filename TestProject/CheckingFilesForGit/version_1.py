@@ -11,6 +11,7 @@ def GitCommandRunner(commit, commit_message):
     repo.index.commit(commit_message)
     print(f'committed file : {commit}')
 
+
 def main():
     # counter for counter committed files
     count = 0
@@ -23,9 +24,12 @@ def main():
     for item in repo.index.diff(None):
         GitCommandRunner(item.a_path, commit_message)
         count += 1
-    # push all commits at once
+    # push all commits at once  
     origin.push()
-    print(f"Done !!! committing : {count} files")
+
+    # print(f"Done !!! committing : {count} files")
+    for i in repo.index.diff(None):
+        print(i.deleted_file)
 
 
 if __name__ == '__main__':
