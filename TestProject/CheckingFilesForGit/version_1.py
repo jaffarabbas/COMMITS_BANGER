@@ -31,9 +31,8 @@ def main():
     # push all commits at once  
     origin.push()
 
-    # print(f"Done !!! committing : {count} files")
-    for i in repo.index.diff(None):
-        print(i.deleted_file)
+    print(f"Done !!! committing : {count} files")
+    
 
 
 if __name__ == '__main__':
